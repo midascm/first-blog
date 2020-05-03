@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name='viewport' content="width=device-width, inntal-scale=1">
+        <title>{% block title %}MidasCM{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+        {% block extra-style %}{% endblock %}
+</head>
+
+<body style="padding-top:80px;">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <span class="navbar-brand mx-5 mb-0 font-weigt-bold font-italic">MidasCM</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto  ">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'bookmark:index' %}">Bookmark</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog:index' %}">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'photo:index' %}">Photo</a>
+            </li>
+           
+            <li class="nav-item dropdown btn btn-sm mx-1">
+              <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">Add</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'bookmark:add' %}">Bookmark</a>
+                <a class="dropdown-item" href="{% url 'blog:add' %}">Post</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'photo:album_add' %}">Album</a>
+                <a class="dropdown-item" href="{% url 'photo:photo_add' %}">Photo</a>
+              </div>
+            </li>
+           
+            <li class="nav-item dropdown btn btn-sm mx-1">
+              <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">Change</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'bookmark:change' %}">Bookmark</a>
+                <a class="dropdown-item" href="{% url 'blog:change' %}">Post</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'photo:album_change' %}">Album</a>
+                <a class="dropdown-item" href="{% url 'photo:photo_change' %}">Photo</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown btn btn-sm mx-1">
+              <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">Util</a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'blog:post_archive' %}">Archive</a>
+                  <a class="dropdown-item" href="{% url 'blog:search' %}">Search</a>
+              </div>
+            </li>
+          </ul>
+          
+
+      <ul class="navbar-nav ml-5 mr-5">
+        <li class = "nav-item dropdown mx-1 btn btn-primary">
+            {% if user.is_active %}
+              <a class = "nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
+                <i class="far fa-user"></i>&ensp;{% firstof user.get_short_name user.get_username %}&ensp;
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+              </div>
+            {% else %}
+                <a class="nav-link dropdown-toggle text-white" href = "#" data-toggle="dropdown">
+                  <i class="far fa-user"></i>&ensp;Anonymous&ensp;</a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                  <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+              </div>
+            {% endif %}
+        </li>
+      </ul>
+    </div>
+  </nav>
+     <div class="container bg-warning">
+        {% block content %}{% endblock %}
+     </div>
+
+     <footer class="container bg-warning">
+        {% block footer %}{% endblock %}
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+    <script src="https;//kit.fontawesome.com/c998a172fe.js"></script>
+    <script id="dsq-count-scr" src="//midascm-2.disqus.com/count.js" async></script>
+    {% block extra-script %}{% endblock %}
+
+</body>
+</html>
