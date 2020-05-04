@@ -1,1 +1,1 @@
-# my-first-blog
+# manage.py
