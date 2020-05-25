@@ -6,7 +6,7 @@
     <h2 class="mt-5">{{ object.title }}</h2> 
     <div class="row">
         <div class="col-md-9">
-            <a href="{{ object.image.url }}" style="width: 100%;"></a>
+            <img src="{{ object.image.url }}" style="width: 100%;">
         </div>
         <ul class="col-md-3 mt-3">
             <li class="h5">Photo Description</li>
@@ -21,7 +21,15 @@
                 <p class="font-italic">
                     <a href="{% url 'photo:album_detail' object.album.id %}">{{ object.album.name }}</a>
                 </p>
+           
         </ul>
     </div>
     
+
+    <br>
+    <hr style="margin: 0 0 10px 0;">
+
+    
+   
+
 {% endblock %}

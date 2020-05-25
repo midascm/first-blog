@@ -18,14 +18,14 @@
         <span class="font-italic h5">{{ item.description }}</span>
     </div>
 
-    <hr style="margin: 0 0 10px 0;">
+<hr style="margin: 0 0 10px 0;">
 
     <div class="row">
-        {% for photo in item.photo_set.all|slice:":5" %}
+        {% for photo in item.photo_set.all %}
             <div class="ml-5">
                 <div class="thumbnail">
                 <a href ="{{ photo.get_absolute_url }}">
-                    <img src="{{ photo.image.thumb_url }}" style="width: 80%;">
+                    <img src="{{ photo.image.thumb_url }}" style="width: 100%;">
                 </a>
                 </div>
             </div>

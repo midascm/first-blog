@@ -21,11 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'y7&i02x)ca=4k_bc(hc+$gvk+&-#+g=+((rzx!r#ujpf&6ma^%'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -124,6 +123,14 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = '/static/'
+
+
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+)
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
@@ -133,7 +140,7 @@ TAGGIT_CASE_INSENSITIVE = True
 TAGGIT_LIMIT = 50
 
 DISQUS_SHORTNAME = 'MidasCM'
-DISQUS_MY_DOMAIN = 'http://127.0.0.1:8000'
+DISQUS_MY_DOMAIN = 'http://0.0.0.0/0'
 
 #LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL ='/'

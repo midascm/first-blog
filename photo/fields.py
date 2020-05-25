@@ -6,7 +6,7 @@ from django.db.models.fields.files import ImageField, ImageFieldFile
 def _add_thumb(s):
     parts = s.split(".")
     parts.insert(-1,"thumb")
-    if parts[-1].lower() not in ['jpeg', 'jpg']:
+    if parts[-1].lower() not in ['jpeg', 'jpg', 'png']:
         parts[-1] = 'jpg'
     return ".".join(parts)
 class ThumbnailImageFieldFile(ImageFieldFile):   
@@ -25,7 +25,7 @@ class ThumbnailImageFieldFile(ImageFieldFile):
         size = (self.field.thumb_width, self.field.thumb_height)
         img.thumbnail(size)
         background = Image.new('RGB', size,(255,255,255))
-        box = (int((size[0] - img.size[0]) / 2), int(size[1] - img.size[1] / 2))
+        box = (int((size[0] - img.size[0]) / 2), int((size[1] - img.size[1]) / 2))
         background.paste(img, box)
         background.save(self.thumb_path, 'JPEG')
 

@@ -5,10 +5,11 @@
 {% block content %}
     <h1>Bookmark List</h1>
     <br>
-
+    <hr style="margin: 10px o;">
     <ul>
         {% for bookmark in object_list %}
-            <li><a href ="{% url 'bookmark:detail' bookmark.id %}">{{ bookmark }}</a></li>
+            <a href ="{% url 'bookmark:detail' bookmark.id %}"><button type="button" class="btn btn-outline-success">{{ bookmark }}</button></a>
+        
         {% endfor %}
     </ul>
 {% endblock %}

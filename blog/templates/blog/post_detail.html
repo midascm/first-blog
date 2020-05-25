@@ -6,7 +6,7 @@
 {% block extra-style %}
 <style>
     .post-body {
-        width: 80%;
+        width: 100%;
         margin: auto;
         font-family: 'Lucida Grande', verdana, arial, sans-serif;
         font-size: 16px;
@@ -21,11 +21,11 @@
 
 <p>
     {% if object.get_previous %}
-            <a href ="{{ object.get_previous.get_absolute_url }}" title="View previous post">&laquo;--{{ object.get_previous }}</a>
+            <a href ="{{ object.get_previous.get_absolute_url }}" title="View previous post"><button type="button" class="btn btn-outline-success">&#9754;{{ object.get_previous }}</a></button> 
     {% endif %}
 
     {% if object.get_next %}
-            <a href ="{{ object.get_next.get_absolute_url }}" title="View next post">{{ object.get_next }} --&raquo;</a>
+            <a href ="{{ object.get_next.get_absolute_url }}" title="View next post"><button type="button" class="btn btn-outline-warning">{{ object.get_next }}&#9755;</a></button>
     {% endif %}
 </p>
 
