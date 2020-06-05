@@ -16,8 +16,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
+# Quick-start development settings - unsuitable forhttps://docs.djangoproject.com/en/3.0/howto/deployment/checklist/ production
+# See 
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'y7&i02x)ca=4k_bc(hc+$gvk+&-#+g=+((rzx!r#ujpf&6ma^%'
@@ -42,7 +42,12 @@ INSTALLED_APPS = [
     'bookmark.apps.BookmarkConfig',
     'blog.apps.BlogConfig',
     'photo.apps.PhotoConfig',
+    'chartjs.apps.ChartjsConfig',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH ="uploads/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -151,15 +156,16 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/static/'
+# STATIC_ROOT = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 )
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')

@@ -28,34 +28,75 @@
 {% endblock %}
 
 {% block content %}
-<div class="home-image">
-  <h2 class="title">MidasCM Web Programing</h2>
-  <h4 class="powered"><i class="fas fa-arrow-circle-right"></i>Powered by MidasCM</h4>
+<div id="demo" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'img/blog.jpg' %}" alt="blog app" width="100%" height="100%">
+      <div class="carousel-caption">
+        <h3>Blog</h3>
+        <p>생각을 기록하라!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+     <img src="{% static 'img/photo.jpg' %}" alt="photo app" width="100%" height="100%">
+      <div class="carousel-caption">
+        <h3>Photo App</h3>
+        <p>순간의 선택!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+     <img src="{% static 'img/bookmark.jpg' %}" alt="bookmark app" width="100%" height="100%">
+      <div class="carousel-caption">
+        <h3>Bookmark App</h3>
+        <p>자주가는 사이트!</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
 </div>
 
 <hr style="margin: 10px o;">
 
 <div class="row text-center">
-  <div class="col-sm-6 bg-">
-  <a href="{% url 'bookmark:index' %}"><h3>Bookmark App</h3></a>
-  <hr style="margin: 10px o;">
-  <p>According to new results of the research done on the history of bookmarks,
-     there are indications that bookmarks have accompanied codices since their first 
-     emergence in the 1st century AD.[1] The earliest existing bookmark dates from 
-     the 6th century AD and it is made of ornamented leather lined with vellum on the back 
-     </p>
-     
-</div>
-<div class="col-sm-6 bg-">
-  <a href="{% url 'blog:index' %}"><h3>Blog App</h3></a>
-  <hr style="margin: 10px o;">
-  <p>According to new results of the research done on the history of bookmarks,
-     there are indications that bookmarks have accompanied codices since their first 
-     emergence in the 1st century AD.[1] The earliest existing bookmark dates from 
-     the 6th century AD and it is made of ornamented leather lined with vellum on the back 
-     </p>
-</div>
-</div>
+  <div class="col-sm-4 bg-">
+    <a href="{% url 'bookmark:index' %}"><h3>Bookmark</h3></a>
+    <hr style="margin: 10px o;">
+    <p>According to new results of the research done on the history of bookmarks,
+       there are indications that bookmarks have accompanied codices since their first
+       emergence in the 1st century AD.[1] The earliest existing bookmark dates from
+       the 6th century AD and it is made of ornamented leather lined with vellum on the back
+       </p>
+  
+  </div>
+  <div class="col-sm-4 bg-">
+    <a href="{% url 'blog:index' %}"><h3>Blog</h3></a>
+    <hr style="margin: 10px o;">
+    <p>According to new results of the research done on the history of bookmarks,
+       there are indications that bookmarks have accompanied codices since their first
+       emergence in the 1st century AD.[1] The earliest existing bookmark dates from
+       the 6th century AD and it is made of ornamented leather lined with vellum on the back
+       </p>
+  </div>
+  <div class="col-sm-4 bg-">
+    <a href="{% url 'photo:index' %}"><h3>Photo</h3></a>
+    <hr style="margin: 10px o;">
+    <p>According to new results of the research done on the history of bookmarks,
+       there are indications that bookmarks have accompanied codices since their first
+       emergence in the 1st century AD.[1] The earliest existing bookmark dates from
+       the 6th century AD and it is made of ornamented leather lined with vellum on the back
+       </p>
+  </div>
+  </div>
 {% endblock %}
 
 {% block footer %}
