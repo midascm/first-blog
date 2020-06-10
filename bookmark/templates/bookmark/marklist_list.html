@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Mark_list.html{% endblock %}
+
+{% block content %}
+    <h1>Mark List</h1>
+    <br>
+    <hr style="margin: 10px o;">
+    <ul>
+        {% for marklist in object_list %}
+            <a href ="{% url 'bookmark:marklist_detail' marklist.id %}"><button type="button" class="btn btn-outline-success">{{ marklist }}</button></a>
+        
+        {% endfor %}
+    </ul>
+{% endblock %}

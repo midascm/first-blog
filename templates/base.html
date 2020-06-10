@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name='viewport' content="width=device-width, inntal-scale=1">
         <title>{% block title %}MidasCM{% endblock %}</title>
+        <link rel="icon" href="/static/img/favicon.ico">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
         {% block extra-style %}{% endblock %}
 </head>
@@ -35,7 +36,8 @@
             <li class="nav-item dropdown btn btn-sm mx-1">
               <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">Add</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="{% url 'bookmark:add' %}">Bookmark</a>
+                <a class="dropdown-item" href="{% url 'bookmark:bookmark_add' %}">Bookmark</a>
+                <a class="dropdown-item" href="{% url 'bookmark:marklist_add' %}">Marklist</a>
                 <a class="dropdown-item" href="{% url 'blog:add' %}">Post</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'photo:album_add' %}">Album</a>
@@ -46,7 +48,8 @@
             <li class="nav-item dropdown btn btn-sm mx-1">
               <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">Change</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="{% url 'bookmark:change' %}">Bookmark</a>
+                <a class="dropdown-item" href="{% url 'bookmark:bookmark_change' %}">Bookmark</a>
+                <a class="dropdown-item" href="{% url 'bookmark:marklist_change' %}">Marklist</a>
                 <a class="dropdown-item" href="{% url 'blog:change' %}">Post</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'photo:album_change' %}">Album</a>

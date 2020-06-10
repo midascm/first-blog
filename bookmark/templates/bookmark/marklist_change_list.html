@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}bookmark_change_list.html{% endblock %}
+{% block title %}marklist_change_list.html{% endblock %}
 
 {% block content %}
 
-<h1>Bookmark Change - {{ user }}</h1>
+<h1>Marklist Change - {{ user }}</h1>
 <br>
 
 <table class="table table-bordered table-sm table-striped">
@@ -22,11 +22,11 @@
     <tbody>
         {% for item in object_list %}
         <tr>
-            <td>{{ item.name }}</td>
+            <td>{{ item.title }}</td>
             <td>{{ item.url }}</td>
             <td>{{ item.owner }}</td>
-            <td><a href="{% url 'bookmark:bookmark_update' item.id %}">Update</a></td>
-            <td><a href="{% url 'bookmark:bookmark_delete' item.id %}">Delete</a></td>
+            <td><a href="{% url 'bookmark:marklist_update' item.id %}">Update</a></td>
+            <td><a href="{% url 'bookmark:marklist_delete' item.id %}">Delete</a></td>
         </tr>
         {% endfor %}
     </tbody>

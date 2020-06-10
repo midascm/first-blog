@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from photo.fields import ThumbnailImageField
 
 # Create your models here.
-class Album(models. Model):
+class Album(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField('One Line Description', max_length=100, blank= True)
     owner = models.ForeignKey('auth.User', on_delete=models.CASCADE, verbose_name='OWNER', blank=True, null=True)

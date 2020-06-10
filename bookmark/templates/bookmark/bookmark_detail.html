@@ -3,9 +3,13 @@
 {% block title %}Bookmark_detail. html{% endblock %}
 
 {% block content %}
-    <h1>{{ object.title }}</h1>
+    <h1>{{ object.name }}</h1>
     
+    <hr style="margin: 10px o;">
     <ul>
-        <li><div class="alert alert-success"><h4><strong>URL [</strong><a href="{{ object.url }}">{{ object.url }}</a>]</h4></div></li>
+        {% for marklist in object.marklist_set.all %}
+            <a href ="{% url 'bookmark:marklist_detail' marklist.id %}"><button type="button" class="btn btn-outline-success">{{ marklist.title }}</button></a>
+        
+        {% endfor %}
     </ul>
 {% endblock %}
