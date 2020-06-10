@@ -10,6 +10,8 @@
     <h3><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h3>
     
     {{ post.modify_dt|date:"N d, Y" }}
+    <br>
+    <hr style="margin: 10px o;">
     <p>{{ post.description }}</p>
     <hr style="margin: 10px o;">
 {% endfor %}

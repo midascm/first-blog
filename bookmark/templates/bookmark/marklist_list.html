@@ -9,7 +9,6 @@
     <ul>
         {% for marklist in object_list %}
             <a href ="{% url 'bookmark:marklist_detail' marklist.id %}"><button type="button" class="btn btn-outline-success">{{ marklist }}</button></a>
-        
         {% endfor %}
     </ul>
 {% endblock %}

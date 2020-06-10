@@ -8,14 +8,20 @@ from django.urls import reverse_lazy
 from mysite.views import OwnerOnlyMixin
 
 # Create your views here.
-class BookmarkLV(ListView):
+class BookmarkLV(LoginRequiredMixin, ListView):
     model = Bookmark
+
+    def get_queryset(self):
+        return Bookmark.objects.filter(owner=self.request.user)
 
 class BookmarkDV(DetailView):
     model = Bookmark
     
-class MarklistLV(ListView):
+class MarklistLV(LoginRequiredMixin, ListView):
     model = Marklist
+
+    def get_queryset(self):
+        return Marklist.objects.filter(owner=self.request.user)
 
 class MarklistDV(DetailView):
     model = Marklist
@@ -29,6 +35,7 @@ class BookmarkCreateView(LoginRequiredMixin, CreateView):
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
+ 
 class BookmarkChangeLV(LoginRequiredMixin, ListView):
     template_name = 'bookmark/bookmark_change_list.html'
 
